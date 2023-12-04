@@ -1,6 +1,8 @@
 #ifndef _DrawTool
 #define _DrawTool
 
+#include <string>
+
 void Sleep();		// 0.1초 쉼
 void Sleep(int);	// 0.0n초 쉼;
 
@@ -24,5 +26,8 @@ int whatShape();	// 어떤 도형을 추가할 지 번호를 받을 때
 
 void drawFinish();	// 프로그램 종료
 
+std::string& makePoint();
+
+std::string& makeNumber();
 
 #endif // !_DrawTool

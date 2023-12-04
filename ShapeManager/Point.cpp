@@ -5,6 +5,12 @@ Point::Point()
 {
 };
 
+Point::Point(int a, int b)
+{
+	x = (double)a;
+	y = (double)b;
+}
+
 Point::Point(double a, double b) : x(a), y(b)
 {
 };

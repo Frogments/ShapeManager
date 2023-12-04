@@ -24,23 +24,120 @@ ShapeManager::~ShapeManager()
 
 Shape* ShapeManager::addCircle()
 {
-	std::string str;
-	return new Circle(Point(0, 0), 3.33);
+	std::string point{ makePoint() };	// 중심점
+
+	size_t commaPos = point.find(',');
+
+	if (commaPos != std::string::npos) {
+		Point tmp{ std::stoi(point.substr(0, commaPos)), std::stoi(point.substr(commaPos + 1)) };
+		std::string length{ makeNumber() }; // 길이
+		return new Circle(tmp, std::stoi(length));
+	}
+	else {
+		drawAlert();
+		return nullptr;
+	}
 }
 
+// 여기 하는 중
 Shape* ShapeManager::addLine()
 {
-	return new Line(Point(0, 0), Point(1, 1));
+	std::string _p1{ makePoint() };
+	size_t commaPos = _p1.find(',');
+
+	if (commaPos != std::string::npos) 
+	{
+		std::string _p2{ makePoint() };
+		commaPos = _p2.find(',');
+
+		if (commaPos != std::string::npos) 
+		{
+			Point tmp{ std::stoi(_p1.substr(0, commaPos)), std::stoi(_p1.substr(commaPos + 1)) };
+			Point tmp2{ std::stoi(_p2.substr(0, commaPos)), std::stoi(_p2.substr(commaPos + 1)) };
+
+			return new Line(tmp, tmp2);
+		}
+		else 
+		{
+			drawAlert();
+			return nullptr;
+		}
+	}
+	else {
+		drawAlert();
+		return nullptr;
+	}
 }
 
 Shape* ShapeManager::addTriangle()
 {
-	return nullptr;
+	std::string _p1{ makePoint() };	
+	size_t commaPos = _p1.find(',');
+
+	if (commaPos != std::string::npos) 
+	{
+		std::string _p2{ makePoint() }; 
+		commaPos = _p2.find(',');
+
+		if (commaPos != std::string::npos) 
+		{
+			std::string _p3{ makePoint() };
+			commaPos = _p3.find(',');
+
+			if (commaPos != std::string::npos) 
+			{
+				Point tmp{ std::stoi(_p1.substr(0, commaPos)), std::stoi(_p1.substr(commaPos + 1)) };
+				Point tmp2{ std::stoi(_p2.substr(0, commaPos)), std::stoi(_p2.substr(commaPos + 1)) };
+				Point tmp3{ std::stoi(_p3.substr(0, commaPos)), std::stoi(_p3.substr(commaPos + 1)) };
+
+				return new Triangle(tmp, tmp2, tmp3);
+			}
+			else 
+			{
+				drawAlert();
+				return nullptr;
+			}
+		}
+		else 
+		{
+			drawAlert();
+			return nullptr;
+		}
+	}
+	else 
+	{
+		drawAlert();
+		return nullptr;
+	}
 }
 
 Shape* ShapeManager::addRectangle()
 {
-	return nullptr;
+	std::string _p1{ makePoint() };
+	size_t commaPos = _p1.find(',');
+
+	if (commaPos != std::string::npos)
+	{
+		std::string _p2{ makePoint() };
+		commaPos = _p2.find(',');
+
+		if (commaPos != std::string::npos)
+		{
+			Point tmp{ std::stoi(_p1.substr(0, commaPos)), std::stoi(_p1.substr(commaPos + 1)) };
+			Point tmp2{ std::stoi(_p2.substr(0, commaPos)), std::stoi(_p2.substr(commaPos + 1)) };
+
+			return new Line(tmp, tmp2);
+		}
+		else
+		{
+			drawAlert();
+			return nullptr;
+		}
+	}
+	else {
+		drawAlert();
+		return nullptr;
+	}
 }
 
 // 인자로 넣을 때 new로 넣기

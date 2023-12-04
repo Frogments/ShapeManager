@@ -183,8 +183,8 @@ void drawShape()
 	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
 	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
 	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	drawEnd();
 	std::cout << '\n';
+	drawEnd();
 }
 
 void drawIncreaseCapacity()
@@ -405,4 +405,75 @@ void drawFinish()
 	std::cout << "니"; Sleep();
 	std::cout << "다"; Sleep();
 	std::cout << "."; Sleep(100);
+}
+
+std::string& makePoint()
+{
+	drawLine();
+	Sleep();
+	std::cout << "점"; Sleep();
+	std::cout << "을"; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << "입"; Sleep();
+	std::cout << "력"; Sleep();
+	std::cout << "해"; Sleep();
+	std::cout << "주"; Sleep();
+	std::cout << "세"; Sleep();
+	std::cout << "요"; Sleep();
+	std::cout << "."; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << "("; Sleep();
+	std::cout << "예"; Sleep();
+	std::cout << ":"; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << "3"; Sleep();
+	std::cout << ","; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << "3"; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << ")"; Sleep();
+	std::cout << "\n"; Sleep();
+	std::cout << "입"; Sleep();
+	std::cout << "력"; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << ":"; Sleep();
+	std::cout << " "; Sleep();
+	std::string tmp;
+	std::cin >> tmp;
+	drawLine();
+	return tmp;
+}
+
+std::string& makeNumber()
+{
+	drawLine();
+	Sleep();
+	std::cout << "길"; Sleep();
+	std::cout << "이"; Sleep();
+	std::cout << "를"; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << "입"; Sleep();
+	std::cout << "력"; Sleep();
+	std::cout << "해"; Sleep();
+	std::cout << "주"; Sleep();
+	std::cout << "세"; Sleep();
+	std::cout << "요"; Sleep();
+	std::cout << "."; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << "("; Sleep();
+	std::cout << "예"; Sleep();
+	std::cout << ":"; Sleep();
+	std::cout << "14"; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << ")"; Sleep();
+	std::cout << "\n"; Sleep();
+	std::cout << "입"; Sleep();
+	std::cout << "력"; Sleep();
+	std::cout << " "; Sleep();
+	std::cout << ":"; Sleep();
+	std::cout << " "; Sleep();
+	std::string tmp;
+	std::cin >> tmp;
+	drawLine();
+	return tmp;
 }
