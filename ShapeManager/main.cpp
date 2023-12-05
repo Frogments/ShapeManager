@@ -11,7 +11,7 @@ int main()
 {
 	ShapeManager sm(5);
 
-	drawStart();
+	drawStart(); 
 	
 	showMenu(sm);
 
