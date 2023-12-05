@@ -111,23 +111,17 @@ void drawInfo(int num, int cap)
 
 void drawShape()
 {
-<<<<<<< HEAD
 	writeLine("도형 추가중...");
 	std::cout << '\n';
 	drawEnd();
-=======
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "추"; Sleep();
-	std::cout << "가"; Sleep();
-	std::cout << "중"; Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
->>>>>>> af1e8ab00ffcbeda07abb8ce02eb4a377dfc7195
+	drawEnd();
+	drawEnd();
+	drawEnd();
+	drawEnd();
+	drawEnd();
+	drawEnd();
+	drawEnd();
+	drawEnd();
 	std::cout << '\n';
 	drawEnd();
 }
