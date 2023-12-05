@@ -13,6 +13,13 @@ void Sleep(int n)
 	std::this_thread::sleep_for(std::chrono::microseconds(n * 1000));
 };
 
+void writeLine(const char* str) {
+	for (const char c : static_cast<std::string>(str)) {
+		std::cout << c;
+		Sleep();
+	}
+}
+
 void drawAlert()
 {
 	std::cout << "시"; Sleep(); Sleep(); Sleep();
@@ -56,23 +63,7 @@ void drawStart()
 {
 	drawLine();
 	Sleep();
-	std::cout << "프"; Sleep();
-	std::cout << "로"; Sleep();
-	std::cout << "그"; Sleep();
-	std::cout << "램"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "수"; Sleep();
-	std::cout << "행"; Sleep();
-	std::cout << "을"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "시"; Sleep();
-	std::cout << "작"; Sleep();
-	std::cout << "합"; Sleep();
-	std::cout << "니"; Sleep();
-	std::cout << "다"; Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
+	writeLine("프로그램 수행을 시작합니다...");
 	std::cout << '\n';
 	Sleep();
 	drawLine();
@@ -106,65 +97,13 @@ void drawInfo(int num, int cap)
 {
 	drawLine();
 	Sleep();
-	std::cout << "보"; Sleep();
-	std::cout << "유"; Sleep();
-	std::cout << "중"; Sleep();
-	std::cout << "인"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << "의"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "개"; Sleep();
-	std::cout << "수"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << " "; Sleep();
+	writeLine("보유중인 도형의 개수 : ");
 	std::cout << num; Sleep();
-	std::cout << "개"; Sleep();
-	std::cout << "."; Sleep();
-	std::cout << "담"; Sleep();
-	std::cout << "을"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "수"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "있"; Sleep();
-	std::cout << "는"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << "의"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "개"; Sleep();
-	std::cout << "수"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << " "; Sleep();
+
+	writeLine("개. 담을 수 있는 도형의 개수 : ");
 	std::cout << cap; Sleep();
-	std::cout << "개"; Sleep();
-	std::cout << "."; Sleep();
-	std::cout << "\n"; Sleep();
-	std::cout << "보"; Sleep();
-	std::cout << "유"; Sleep();
-	std::cout << "중"; Sleep();
-	std::cout << "인"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << "의"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "정"; Sleep();
-	std::cout << "보"; Sleep();
-	std::cout << "를"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "출"; Sleep();
-	std::cout << "력"; Sleep();
-	std::cout << "합"; Sleep();
-	std::cout << "니"; Sleep();
-	std::cout << "다"; Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
+
+	writeLine("개.\n보유중인 도형의 정보를 출력합니다...");
 	std::cout << '\n';
 	drawLine();
 	Sleep();
@@ -172,17 +111,8 @@ void drawInfo(int num, int cap)
 
 void drawShape()
 {
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "추"; Sleep();
-	std::cout << "가"; Sleep();
-	std::cout << "중"; Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
+	writeLine("도형 추가중...");
+	std::cout << '\n';
 	drawEnd();
 	std::cout << '\n';
 }

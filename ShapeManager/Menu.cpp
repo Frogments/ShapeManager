@@ -1,4 +1,5 @@
 #include "Menu.h"
+#include "addShape.h"
 
 void showMenu(ShapeManager& sm)
 {
@@ -23,16 +24,16 @@ void showMenu(ShapeManager& sm)
 			switch ( input )
 			{
 			case 1:
-				sm.insert(sm.addCircle());
+				sm.insert(addCircle());
 				break;
 			case 2:
-				sm.insert(sm.addLine());
+				sm.insert(addLine());
 				break;
 			case 3:
-				sm.insert(sm.addTriangle());
+				sm.insert(addTriangle());
 				break;
 			case 4:
-				sm.insert(sm.addRectangle());
+				sm.insert(addRectangle());
 				break;
 			default:
 				break;

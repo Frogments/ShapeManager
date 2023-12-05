@@ -129,6 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="addShape.h" />
     <ClInclude Include="DrawTool.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="Menu.h" />
@@ -139,6 +140,7 @@
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="addShape.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="DrawTool.cpp" />
     <ClCompile Include="Line.cpp" />

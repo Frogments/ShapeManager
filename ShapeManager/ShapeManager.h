@@ -14,12 +14,6 @@ public:
 	~ShapeManager();
 	ShapeManager(const ShapeManager&) = default;
 
-	// 아직 미완성 ( 2023/12/04 )
-	Shape* addCircle();
-	Shape* addLine();
-	Shape* addTriangle();
-	Shape* addRectangle();
-
 	void insert(Shape*);
 	void draw() const;
 };

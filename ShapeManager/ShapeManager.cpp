@@ -22,27 +22,6 @@ ShapeManager::~ShapeManager()
 	delete[] shapes;
 }
 
-Shape* ShapeManager::addCircle()
-{
-	std::string str;
-	return new Circle(Point(0, 0), 3.33);
-}
-
-Shape* ShapeManager::addLine()
-{
-	return new Line(Point(0, 0), Point(1, 1));
-}
-
-Shape* ShapeManager::addTriangle()
-{
-	return nullptr;
-}
-
-Shape* ShapeManager::addRectangle()
-{
-	return nullptr;
-}
-
 // 인자로 넣을 때 new로 넣기
 void ShapeManager::insert(Shape* other)
 {
