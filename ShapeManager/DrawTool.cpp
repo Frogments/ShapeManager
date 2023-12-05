@@ -5,7 +5,7 @@
 
 void Sleep() 
 {
-	std::this_thread::sleep_for(std::chrono::microseconds(100000));
+	std::this_thread::sleep_for(std::chrono::microseconds(10000));
 };
 
 void Sleep(int n)
@@ -112,16 +112,6 @@ void drawInfo(int num, int cap)
 void drawShape()
 {
 	writeLine("도형 추가중...");
-	std::cout << '\n';
-	drawEnd();
-	drawEnd();
-	drawEnd();
-	drawEnd();
-	drawEnd();
-	drawEnd();
-	drawEnd();
-	drawEnd();
-	drawEnd();
 	std::cout << '\n';
 	drawEnd();
 }
