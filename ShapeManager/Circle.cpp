@@ -4,6 +4,7 @@
 Circle::Circle()
 	: center(), rad(0.0)
 {
+	p = new int[300];
 };
 
 Circle::Circle(const Point& c, double r)
@@ -18,7 +19,7 @@ Circle::Circle(const Circle& other)
 
 Circle::~Circle()
 {
-	std::cout << "¿ø ¼Ò¸êÀÚ\n";
+	delete p;
 };
 
 void Circle::draw() const

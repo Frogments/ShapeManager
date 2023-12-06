@@ -7,6 +7,7 @@ class Circle : public Shape
 {
 	Point center;	// 중심점의 좌표
 	double rad;		// 반지름
+	int* p;
 public:
 	Circle();
 	Circle(const Point&, double);

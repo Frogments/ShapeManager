@@ -50,7 +50,10 @@ void ShapeManager::erase(int n)
 	}
 
 	delete shapes[n];
-	memmove(shapes + n, shapes + n + 1, 8 * (nShape - static_cast<size_t>(n)));
+	for (int i = n; i < nShape - 1; ++i)
+		shapes[n] = shapes[n + 1];
+	
+	//memmove(shapes + n, shapes + n + 1, 8 * (nShape - static_cast<size_t>(n)));
 	--nShape;
 }
 

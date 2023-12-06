@@ -8,8 +8,7 @@
 #include "Rectangle.h"
 
 
-// 번호붙은 도형 제거해라
-// 이런거 냄
+// 번호붙은 도형 제거해라n
 
 int main()
 {
