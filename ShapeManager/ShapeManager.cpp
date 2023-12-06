@@ -25,7 +25,6 @@ ShapeManager::~ShapeManager()
 // 인자로 넣을 때 new로 넣기
 void ShapeManager::insert(Shape* other)
 {
-	drawShape();
 	shapes[nShape] = other;
 	++nShape;
 

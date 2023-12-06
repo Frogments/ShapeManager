@@ -61,5 +61,6 @@ int startMenu(ShapeManager& sm)
 			return input;
 	}
 
+	clearScreen();
 	return input;
 }

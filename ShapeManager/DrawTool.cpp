@@ -10,17 +10,6 @@ void Sleep(int n)
 	std::this_thread::sleep_for(std::chrono::microseconds(n * 1000));
 };
 
-// 터미널을 깨끗이 함
-void clearScreen() {
-	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-	COORD coord = { 0, 0 };
-	DWORD count;
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	GetConsoleScreenBufferInfo(hStdOut, &csbi);
-	FillConsoleOutputCharacter(hStdOut, ' ', csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
-	SetConsoleCursorPosition(hStdOut, coord);
-}
-
 // 선을 하나 그어줌
 void drawLine()
 {
@@ -39,6 +28,20 @@ void writeLine(const char* str) {
 		std::cout << c;
 		Sleep();
 	}
+}
+
+// 터미널을 깨끗이 함
+void clearScreen() {
+	writeLine("터미널을 깨끗이 하겠습니다...\n");
+	drawLine();
+	Sleep(1000);
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD coord = { 0, 0 };
+	DWORD count;
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(hStdOut, &csbi);
+	FillConsoleOutputCharacter(hStdOut, ' ', csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
+	SetConsoleCursorPosition(hStdOut, coord);
 }
 
 // 경고 출력
