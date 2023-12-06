@@ -1,5 +1,4 @@
-#ifndef _DrawTool
-#define _DrawTool
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -37,5 +36,3 @@ std::string makePoint();		// 점을 얻을 때
 int makeNumber();				// 길이를 얻을 때
 
 int eraseNumOfShape();			// 도형을 지울 때
-
-#endif // !_DrawTool

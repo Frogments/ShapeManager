@@ -45,13 +45,13 @@ void ShapeManager::insert(Shape* other)
 
 void ShapeManager::erase(int n)
 {
-	if (n < 0 || n > nShape) {
+	if (n < 0 || n >= nShape) {
 		std::cout << "입력하신 번호와 맞는 도형이 없습니다.\n";
 		return;
 	}
 
 	delete shapes[n];
-	memmove(shapes + n, shapes + n + 1, 8 * (nShape - n));
+	memmove(shapes + n, shapes + n + 1, 8 * (nShape - static_cast<size_t>(n)));
 	--nShape;
 }
 

@@ -1,5 +1,4 @@
-#ifndef _Rectangle
-#define _Rectangle
+#pragma once
 
 #include "Point.h"
 #include "Shape.h"
@@ -17,4 +16,3 @@ public:
 	virtual void draw() const override;
 };
 
-#endif

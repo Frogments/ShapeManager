@@ -1,5 +1,4 @@
-#ifndef _Point
-#define _Point
+#pragma once
 
 struct Point
 {
@@ -11,5 +10,3 @@ struct Point
 
 	Point(const Point&) = default;
 };
-
-#endif // !_Point

@@ -1,5 +1,4 @@
-#ifndef _Triangle
-#define _Triangle
+#pragma once
 
 #include "Point.h"
 #include "Shape.h"
@@ -16,5 +15,3 @@ public:
 
 	virtual void draw() const override;
 };
-
-#endif

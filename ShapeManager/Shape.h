@@ -1,5 +1,4 @@
-#ifndef _Shape
-#define _Shape
+#pragma once
 
 class Shape
 {
@@ -10,4 +9,3 @@ public:
 	virtual void draw() const = 0;
 };
 
-#endif // !_Shape

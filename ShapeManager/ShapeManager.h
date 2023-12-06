@@ -1,5 +1,4 @@
-#ifndef _ShapeManager
-#define _ShapeManager
+#pragma once
 
 #include "Shape.h"
 
@@ -19,5 +18,3 @@ public:
 
 	void draw() const;
 };
-
-#endif // !_ShapeManager

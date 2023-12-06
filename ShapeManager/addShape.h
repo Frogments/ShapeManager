@@ -1,5 +1,4 @@
-#ifndef _ADDSHAPE
-#define _ADDSHAPE
+#pragma once
 
 #include "Shape.h"
 
@@ -10,4 +9,3 @@ Shape* addLine();
 Shape* addTriangle();
 Shape* addRectangle();
 
-#endif // !_ADDSHAPE
