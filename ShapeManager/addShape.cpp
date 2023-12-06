@@ -1,4 +1,10 @@
+#include <string>
 #include "addShape.h"
+#include "Circle.h"
+#include "Line.h"
+#include "Rectangle.h"
+#include "Triangle.h"
+#include "DrawTool.h"
 
 Shape* addCircle()
 {
