@@ -7,5 +7,6 @@
 #include "Rectangle.h"
 #include "Shape.h"
 #include "DrawTool.h"
+#include "addShape.h"
 
-void showMenu(ShapeManager& sm);
+int startMenu(ShapeManager& sm);

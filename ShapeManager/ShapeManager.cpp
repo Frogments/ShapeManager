@@ -43,6 +43,18 @@ void ShapeManager::insert(Shape* other)
 	}
 }
 
+void ShapeManager::erase(int n)
+{
+	if (n < 0 || n > nShape) {
+		std::cout << "입력하신 번호와 맞는 도형이 없습니다.\n";
+		return;
+	}
+
+	delete shapes[n];
+	memmove(shapes + n, shapes + n + 1, 8 * (nShape - n));
+	--nShape;
+}
+
 void ShapeManager::draw() const
 {
 	drawInfo(nShape, capacity);
@@ -53,6 +65,4 @@ void ShapeManager::draw() const
 		shapes[i]->draw();
 		Sleep(30);
 	}
-
-	drawEnd();
 }

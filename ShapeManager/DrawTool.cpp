@@ -1,54 +1,27 @@
-#include <iostream>
-#include <chrono>
-#include <thread>
 #include "DrawTool.h"
 
+// 터미널을 잠시 멈춤
 void Sleep() 
 {
 	std::this_thread::sleep_for(std::chrono::microseconds(10000));
 };
-
 void Sleep(int n)
 {
 	std::this_thread::sleep_for(std::chrono::microseconds(n * 1000));
 };
 
-void writeLine(const char* str) {
-	for (const char c : static_cast<std::string>(str)) {
-		std::cout << c;
-		Sleep();
-	}
+// 터미널을 깨끗이 함
+void clearScreen() {
+	HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+	COORD coord = { 0, 0 };
+	DWORD count;
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(hStdOut, &csbi);
+	FillConsoleOutputCharacter(hStdOut, ' ', csbi.dwSize.X * csbi.dwSize.Y, coord, &count);
+	SetConsoleCursorPosition(hStdOut, coord);
 }
 
-void drawAlert()
-{
-	std::cout << "시"; Sleep(); Sleep(); Sleep();
-	std::cout << "각"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "에"; Sleep(); Sleep(); Sleep();
-	std::cout << " "; Sleep(); Sleep();
-	std::cout << "문"; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "제"; Sleep(); Sleep();
-	std::cout << "가"; Sleep(); Sleep(); Sleep();
-	std::cout << " "; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "있"; Sleep(); Sleep();
-	std::cout << "으"; Sleep(); Sleep();
-	std::cout << "신"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "가"; Sleep(); Sleep();
-	std::cout << "요"; Sleep(); Sleep();
-	std::cout << "?"; Sleep(); Sleep();
-	std::cout << "?"; Sleep(); Sleep(); Sleep(); 
-	std::cout << "?"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "?"; Sleep(); Sleep(); Sleep();
-	std::cout << "?"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "?"; Sleep(); Sleep(); 
-	std::cout << "?"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "?"; Sleep(); Sleep(); Sleep(); 
-	std::cout << "?"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "?"; Sleep(); Sleep(); 
-	std::cout << "?"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << '\n';
-}
-
+// 선을 하나 그어줌
 void drawLine()
 {
 	for (int i = 0; i < 50; ++i)
@@ -57,197 +30,79 @@ void drawLine()
 		Sleep(1);
 	}
 	std::cout << '\n';
+	Sleep(200);
 };
 
+// 입력받은 문장을 출력함
+void writeLine(const char* str) {
+	for (const char c : static_cast<std::string>(str)) {
+		std::cout << c;
+		Sleep();
+	}
+}
+
+// 경고 출력
+void drawAlert()
+{
+	writeLine("시각에 문제가 있으신가요?????\n");
+	drawLine();
+	Sleep(200);
+}
+
+// 시작 출력
 void drawStart()
 {
 	drawLine();
 	Sleep();
-	writeLine("프로그램 수행을 시작합니다...");
-	std::cout << '\n';
-	Sleep();
+	writeLine("프로그램 수행을 시작합니다...\n");
 	drawLine();
-	Sleep();
+	Sleep(200);
 };
 
+// 끝 출력
 void drawEnd()
 {
+	writeLine("수행을 완료하였습니다...\n");
 	drawLine();
-	Sleep();
-	std::cout << "수"; Sleep();
-	std::cout << "행"; Sleep();
-	std::cout << "을"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "완"; Sleep();
-	std::cout << "료"; Sleep();
-	std::cout << "하"; Sleep();
-	std::cout << "였"; Sleep();
-	std::cout << "습"; Sleep();
-	std::cout << "니"; Sleep();
-	std::cout << "다"; Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << '\n';
-	drawLine();
-	Sleep();
+	Sleep(200);
 };
 
+// 도형의 정보 출력
 void drawInfo(int num, int cap)
 {
-	drawLine();
-	Sleep();
 	writeLine("보유중인 도형의 개수 : ");
 	std::cout << num; Sleep();
 
 	writeLine("개. 담을 수 있는 도형의 개수 : ");
 	std::cout << cap; Sleep();
 
-	writeLine("개.\n보유중인 도형의 정보를 출력합니다...");
-	std::cout << '\n';
+	writeLine("개.\n보유중인 도형의 정보를 출력합니다...\n");
 	drawLine();
-	Sleep();
+	Sleep(200);
 }
 
+// 도형 추가중 출력
 void drawShape()
 {
-	writeLine("도형 추가중...");
-	std::cout << '\n';
-	drawEnd();
+	writeLine("도형 추가중...\n");
 }
 
+// 용량 추가중 출력
 void drawIncreaseCapacity()
 {
 	drawLine();
 	Sleep();
-	std::cout << "용"; Sleep();
-	std::cout << "량"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "초"; Sleep();
-	std::cout << "과"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "발"; Sleep();
-	std::cout << "생"; Sleep();
-	std::cout << "!"; Sleep(); Sleep();
-	std::cout << "!"; Sleep(); Sleep(); Sleep();
-	std::cout << "!"; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << '\n';
-	std::cout << "메"; Sleep();
-	std::cout << "모"; Sleep();
-	std::cout << "리"; Sleep();
-	std::cout << "를"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "옮"; Sleep();
-	std::cout << "기"; Sleep();
-	std::cout << "는"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "중"; Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << '\n';
-	std::cout << "이"; Sleep();
-	std::cout << "전"; Sleep();
-	std::cout << "을"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "완"; Sleep();
-	std::cout << "료"; Sleep();
-	std::cout << "하"; Sleep();
-	std::cout << "였"; Sleep();
-	std::cout << "습"; Sleep();
-	std::cout << "니"; Sleep();
-	std::cout << "다"; Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << "."; Sleep(); Sleep(); Sleep(); Sleep(); Sleep();
-	std::cout << '\n';
-	drawLine();
-	Sleep();
+	// 용량 초과 발생!!! 메모리를 옮기는 중... 이전을 완료하였습니다...
+	writeLine("용량 초과 발생!!!\n 메모리를 옮기는 중...\n이전을 완료하였습니다...\n");
 }
 
 // 1. 도형추가 2. 도형그리기 3. 도형제거 4. 종료
 int drawMenu()
 {
-	std::cout << "원"; Sleep();
-	std::cout << "하"; Sleep();
-	std::cout << "시"; Sleep();
-	std::cout << "는"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "메"; Sleep();
-	std::cout << "뉴"; Sleep();
-	std::cout << "의"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "번"; Sleep();
-	std::cout << "호"; Sleep();
-	std::cout << "를"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "입"; Sleep();
-	std::cout << "력"; Sleep();
-	std::cout << "해"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "주"; Sleep();
-	std::cout << "세"; Sleep();
-	std::cout << "요"; Sleep();
-	std::cout << "."; Sleep();
-	std::cout << '\n';
-	std::cout << "["; Sleep();
-	std::cout << "1"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "추"; Sleep();
-	std::cout << "가"; Sleep();
-	std::cout << "하"; Sleep();
-	std::cout << "기"; Sleep();
-	std::cout << "\n"; Sleep();
-	std::cout << "["; Sleep();
-	std::cout << "2"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "전"; Sleep();
-	std::cout << "체"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "그"; Sleep();
-	std::cout << "리"; Sleep();
-	std::cout << "기"; Sleep();
-	std::cout << "\n"; Sleep();
-	std::cout << "["; Sleep();
-	std::cout << "3"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "제"; Sleep();
-	std::cout << "거"; Sleep();
-	std::cout << "하"; Sleep();
-	std::cout << "기"; Sleep();
-	std::cout << "\n"; Sleep();
-	std::cout << "["; Sleep();
-	std::cout << "4"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "프"; Sleep();
-	std::cout << "로"; Sleep();
-	std::cout << "그"; Sleep();
-	std::cout << "램"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "종"; Sleep();
-	std::cout << "료"; Sleep();
-	std::cout << "\n"; Sleep();
+	writeLine("원하시는 메뉴의 번호를 입력해주세요.\n\t[1] 도형 추가하기\n\t[2] 도형 제거하기\n\t[3] 도형 그리기\n\t[4] 프로그램 종료\n");
 	drawLine();
-	std::cout << "번"; Sleep();
-	std::cout << "호"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << " "; Sleep();
+	writeLine("번호 :");
+
 	int in;
 	std::cin >> in;
 	drawLine();
@@ -257,60 +112,9 @@ int drawMenu()
 // 1. 원		2. 선분		3. 삼각형	4. 직사각형
 int whatShape()
 {
-	std::cout << "어"; Sleep();
-	std::cout << "떤"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "도"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << "을"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "추"; Sleep();
-	std::cout << "가"; Sleep();
-	std::cout << "하"; Sleep();
-	std::cout << "시"; Sleep();
-	std::cout << "겠"; Sleep();
-	std::cout << "습"; Sleep();
-	std::cout << "니"; Sleep();
-	std::cout << "까"; Sleep();
-	std::cout << "?"; Sleep();
-	std::cout << "\n"; Sleep();
-	std::cout << "\t"; Sleep();
-	std::cout << "["; Sleep();
-	std::cout << "1"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << ' ';
-	std::cout << "원"; Sleep();
-	std::cout << "\n\t"; Sleep();
-	std::cout << "["; Sleep();
-	std::cout << "2"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "선"; Sleep();
-	std::cout << "분"; Sleep();
-	std::cout << "\n\t"; Sleep();
-	std::cout << "["; Sleep();
-	std::cout << "3"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "삼"; Sleep();
-	std::cout << "각"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << "\n\t"; Sleep();
-	std::cout << "["; Sleep();
-	std::cout << "4"; Sleep();
-	std::cout << "]"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "직"; Sleep();
-	std::cout << "사"; Sleep();
-	std::cout << "각"; Sleep();
-	std::cout << "형"; Sleep();
-	std::cout << "\n"; Sleep();
+	writeLine("어떤 도형을 추가하시겠습니까?\n\t[1] 원\n\t[2] 선분\n\t[3] 삼각형\n\t[4] 직사각형\n");
 	drawLine();
-	std::cout << "번"; Sleep();
-	std::cout << "호"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << " "; Sleep();
+	writeLine("번호 :");
 
 	int in;
 	std::cin >> in;
@@ -318,91 +122,44 @@ int whatShape()
 	return in;
 }
 
+// 프로그램 종료 출력
 void drawFinish()
 {
-	std::cout << "프"; Sleep();
-	std::cout << "로"; Sleep();
-	std::cout << "그"; Sleep();
-	std::cout << "램"; Sleep();
-	std::cout << "을"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "종"; Sleep();
-	std::cout << "료"; Sleep();
-	std::cout << "하"; Sleep();
-	std::cout << "겠"; Sleep();
-	std::cout << "습"; Sleep();
-	std::cout << "니"; Sleep();
-	std::cout << "다"; Sleep();
-	std::cout << "."; Sleep(100);
+	writeLine("프로그램을 종료하겠습니다.\n");
 }
 
-std::string& makePoint()
+// string 하나 받아서 반환
+std::string makePoint()
 {
 	drawLine();
 	Sleep();
-	std::cout << "점"; Sleep();
-	std::cout << "을"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "입"; Sleep();
-	std::cout << "력"; Sleep();
-	std::cout << "해"; Sleep();
-	std::cout << "주"; Sleep();
-	std::cout << "세"; Sleep();
-	std::cout << "요"; Sleep();
-	std::cout << "."; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "("; Sleep();
-	std::cout << "예"; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "3"; Sleep();
-	std::cout << ","; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "3"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ")"; Sleep();
-	std::cout << "\n"; Sleep();
-	std::cout << "입"; Sleep();
-	std::cout << "력"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << " "; Sleep();
+	writeLine("점을 입력해주세요. ( 예: 3,3 )\n입력 :");
+
 	std::string tmp;
+	std::cin >> tmp;
+	drawLine();
+	Sleep(200);
+	return tmp;
+}
+
+// int 하나 받아서 반환
+int makeNumber()
+{
+	drawLine();
+	Sleep();
+	writeLine("길이를 입력해주세요. ( 예: 14 )\n입력 :");
+
+	int tmp;
 	std::cin >> tmp;
 	drawLine();
 	return tmp;
 }
 
-std::string& makeNumber()
+// (특수) 지울 도형의 번호 받는 용도
+int eraseNumOfShape()
 {
-	drawLine();
-	Sleep();
-	std::cout << "길"; Sleep();
-	std::cout << "이"; Sleep();
-	std::cout << "를"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "입"; Sleep();
-	std::cout << "력"; Sleep();
-	std::cout << "해"; Sleep();
-	std::cout << "주"; Sleep();
-	std::cout << "세"; Sleep();
-	std::cout << "요"; Sleep();
-	std::cout << "."; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << "("; Sleep();
-	std::cout << "예"; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << "14"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ")"; Sleep();
-	std::cout << "\n"; Sleep();
-	std::cout << "입"; Sleep();
-	std::cout << "력"; Sleep();
-	std::cout << " "; Sleep();
-	std::cout << ":"; Sleep();
-	std::cout << " "; Sleep();
-	std::string tmp;
-	std::cin >> tmp;
-	drawLine();
-	return tmp;
+	writeLine("지울 도형의 번호를 입력해주세요.\n입력 :");
+	int n;
+	std::cin >> n;
+	return n;
 }

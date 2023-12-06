@@ -15,6 +15,8 @@ public:
 	ShapeManager(const ShapeManager&) = default;
 
 	void insert(Shape*);
+	void erase(int n);
+
 	void draw() const;
 };
 

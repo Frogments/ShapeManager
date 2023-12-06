@@ -13,8 +13,10 @@ int main()
 
 	drawStart(); 
 	
-	showMenu(sm);
+	int n{};
+	while (n != 4) {
+		n = startMenu(sm);
+	};
 
-	drawEnd();
 	drawFinish();
 }

@@ -1,6 +1,4 @@
-#include <string>
 #include "addShape.h"
-#include "DrawTool.h"
 
 Shape* addCircle()
 {
@@ -10,8 +8,8 @@ Shape* addCircle()
 
 	if (commaPos != std::string::npos) {
 		Point tmp{ std::stoi(point.substr(0, commaPos)), std::stoi(point.substr(commaPos + 1)) };
-		std::string length{ makeNumber() }; // 길이
-		return new Circle(tmp, std::stoi(length));
+		int length{ makeNumber() }; // 길이
+		return new Circle(tmp, length);
 	}
 	else {
 		drawAlert();
