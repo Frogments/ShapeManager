@@ -18,6 +18,7 @@ Circle::Circle(const Circle& other)
 
 Circle::~Circle()
 {
+	std::cout << "¿ø ¼Ò¸êÀÚ\n";
 };
 
 void Circle::draw() const

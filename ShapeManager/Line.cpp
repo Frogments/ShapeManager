@@ -18,6 +18,7 @@ Line::Line(const Line& other)
 
 Line::~Line()
 {
+	std::cout << "¼±ºĞ ¼Ò¸êÀÚ\n";
 }
 
 void Line::draw() const

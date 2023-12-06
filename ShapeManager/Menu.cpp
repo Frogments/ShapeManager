@@ -39,7 +39,8 @@ int startMenu(ShapeManager& sm)
 				sm.insert(addTriangle());	
 				break;
 			case 4:
-				sm.insert(addRectangle());	
+				sm.insert(addRectangle());
+				--input;
 				break;
 			default:
 				break;
@@ -61,6 +62,6 @@ int startMenu(ShapeManager& sm)
 			return input;
 	}
 
-	clearScreen();
+	//clearScreen();
 	return input;
 }

@@ -18,6 +18,7 @@ Rectangle::Rectangle(const Rectangle& other)
 
 Rectangle::~Rectangle()
 {
+	std::cout << "사각형 소멸자\n";
 };
 
 void Rectangle::draw() const
