@@ -29,10 +29,12 @@ int drawMenu();					// 메뉴판
 
 int whatShape();				// 어떤 도형을 추가할 지 번호를 받을 때
 
+int whatSetting();				// 어떤 설정을 고를 지 번호를 받을 때
+
 void drawFinish();				// 프로그램 종료
 
 std::string makePoint();		// 점을 얻을 때
 	
-int makeNumber();				// 길이를 얻을 때
+double makeNumber();				// 길이를 얻을 때
 
 int eraseNumOfShape();			// 도형을 지울 때

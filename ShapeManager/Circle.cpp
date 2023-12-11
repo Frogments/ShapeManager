@@ -2,28 +2,28 @@
 #include "Circle.h"
 
 Circle::Circle()
-	: center(), rad(0.0)
+	: center( new Point ), rad(0.0)
 {
-	p = new int[300];
 };
 
 Circle::Circle(const Point& c, double r)
-	:center(c), rad(r)
+	:center(new Point(c)), rad(r)
 {
 };
 
 Circle::Circle(const Circle& other)
-	: center(other.center), rad(other.rad)
+	: center(new Point(*(other.center))), rad(other.rad)
 {
 };
 
 Circle::~Circle()
 {
-	delete p;
+	std::cout << "Circle소멸자\n";
+	delete center;
 };
 
 void Circle::draw() const
 {
-	std::cout << "원 - 중심점(" << center.x << "," << center.y
+	std::cout << "원 - 중심점(" << center->x << "," << center->y
 		<< ") 반지름 " << rad << '\n';
 };

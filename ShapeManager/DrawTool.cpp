@@ -3,7 +3,7 @@
 // 터미널을 잠시 멈춤
 void Sleep() 
 {
-	std::this_thread::sleep_for(std::chrono::microseconds(10000));
+	std::this_thread::sleep_for(std::chrono::microseconds(1000));
 };
 void Sleep(int n)
 {
@@ -16,7 +16,7 @@ void drawLine()
 	for (int i = 0; i < 50; ++i)
 	{
 		std::cout << "-";
-		Sleep(1);
+		//Sleep(1);
 	}
 	std::cout << '\n';
 	Sleep(200);
@@ -26,7 +26,7 @@ void drawLine()
 void writeLine(const char* str) {
 	for (const char c : static_cast<std::string>(str)) {
 		std::cout << c;
-		Sleep();
+		//Sleep();
 	}
 }
 
@@ -102,7 +102,13 @@ void drawIncreaseCapacity()
 // 1. 도형추가 2. 도형그리기 3. 도형제거 4. 종료
 int drawMenu()
 {
-	writeLine("원하시는 메뉴의 번호를 입력해주세요.\n\t[1] 도형 추가하기\n\t[2] 도형 제거하기\n\t[3] 도형 그리기\n\t[4] 프로그램 종료\n");
+	writeLine("원하시는 메뉴의 번호를 입력해주세요.\n");
+	writeLine("\t[1] 도형 추가하기\n"); 
+	writeLine("\t[2] 도형 제거하기\n"); 
+	writeLine("\t[3] 도형 그리기\n"); 
+	writeLine("\t[4] 도형 복사하기\n"); 
+	writeLine("\t[5] 프로그램 종료\n");
+	writeLine("\t[6] 설정\n");
 	drawLine();
 	writeLine("번호 :");
 
@@ -123,6 +129,16 @@ int whatShape()
 	std::cin >> in;
 	drawLine();
 	return in;
+}
+
+// 1. 도형 저장  2. 도형 불러오기
+int whatSetting() {
+	int cin;
+	writeLine("\t[1] - 도형 저장하기\n");
+	writeLine("\t[2] - 도형 불러오기\n");
+	writeLine("번호 : ");
+	std::cin >> cin;
+	return cin;
 }
 
 // 프로그램 종료 출력
@@ -146,13 +162,13 @@ std::string makePoint()
 }
 
 // int 하나 받아서 반환
-int makeNumber()
+double makeNumber()
 {
 	drawLine();
 	Sleep();
 	writeLine("길이를 입력해주세요. ( 예: 14 )\n입력 :");
 
-	int tmp;
+	double tmp;
 	std::cin >> tmp;
 	drawLine();
 	return tmp;

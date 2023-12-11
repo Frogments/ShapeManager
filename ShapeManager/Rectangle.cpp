@@ -2,26 +2,28 @@
 #include "Rectangle.h"
 
 Rectangle::Rectangle()
-	: p1(), p2()
+	: p1( new Point ), p2( new Point )
 {
 };
 
 Rectangle::Rectangle(const Point& _p1, const Point& _p2)
-	: p1(_p1), p2(_p2)
+	: p1(new Point(_p1)), p2(new Point(_p2))
 {
 };
 
 Rectangle::Rectangle(const Rectangle& other)
-	: p1(other.p1), p2(other.p2)
 {
+	p1 = new Point(*(other.p1));
+	p2 = new Point(*(other.p2));
 };
 
 Rectangle::~Rectangle()
 {
-	std::cout << "사각형 소멸자\n";
+	delete p1;
+	delete p2;
 };
 
 void Rectangle::draw() const
 {
-	std::cout << "사각형 - (" << p1.x << "," << p1.y << "), (" << p2.x << "," << p2.y << ")\n";
+	std::cout << "사각형 - (" << p1->x << "," << p1->y << "), (" << p2->x << "," << p2->y << ")\n";
 }

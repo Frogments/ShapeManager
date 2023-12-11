@@ -13,8 +13,11 @@ public:
 	~ShapeManager();
 	ShapeManager(const ShapeManager&) = default;
 
+	void copy(int n);
 	void insert(Shape*);
+	
 	void erase(int n);
+	void eraseAll();
 
 	void draw() const;
 };

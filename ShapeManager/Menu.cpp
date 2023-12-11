@@ -6,25 +6,27 @@
 #include "Shape.h"
 #include "DrawTool.h"
 #include "addShape.h"
+#include "SaveManager.h"
+
 
 int startMenu(ShapeManager& sm)
 {
 	int input = drawMenu();
 
-	if (input < 1 || input > 4) {
+	if (input < 1 || input > 6) {
 		drawAlert();
-		input = 4;
+		input = 0;
 	}
 
 	switch (input)
 	{
 		// 도형 추가
 		case 1 :
-			input = whatShape();
+			input = whatShape();	// 어떤 도형을 만들 지
 
 			if (input < 1 || input > 4) {
 				drawAlert();
-				input = 4;
+				input = 0;
 			}
 
 			switch ( input )
@@ -40,7 +42,6 @@ int startMenu(ShapeManager& sm)
 				break;
 			case 4:
 				sm.insert(addRectangle());
-				--input;
 				break;
 			default:
 				break;
@@ -57,9 +58,37 @@ int startMenu(ShapeManager& sm)
 			sm.draw();
 			break;
 
-		// 프로그램 종료
+		// 도형 복사
 		case 4 :
-			return input;
+			//sm.copy();
+			break;
+
+		// 프로그램 종료
+		case 5 :
+			return 0;
+
+		// 도형 저장, 불러오기
+		case 6 :
+		{
+			int cin{ whatSetting() };
+			
+			if (cin < 1 || cin > 2) {
+				drawAlert();
+				input = 0;
+			}
+
+			// 도형 저장
+			if (cin == 1) {
+				
+			}
+			// 도형 불러오기
+			else if (cin == 2) {
+				
+			}
+
+			break;
+		}
+
 	}
 
 	//clearScreen();

@@ -8,7 +8,9 @@
 #include "Rectangle.h"
 
 
-// 번호붙은 도형 제거해라n
+// 할 일
+// 도형 타입 전체 제거
+// 파일 기록
 
 int main()
 {
@@ -16,8 +18,8 @@ int main()
 
 	drawStart(); 
 	
-	int n{};
-	while (n != 4) {
+	int n{ 1 };
+	while (n != 0) {
 		n = startMenu(sm);
 	};
 

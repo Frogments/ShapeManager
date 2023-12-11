@@ -22,6 +22,11 @@ ShapeManager::~ShapeManager()
 	delete[] shapes;
 }
 
+//void ShapeManager::copy(int n)
+//{
+//	insert(new Shape)
+//}
+
 // 인자로 넣을 때 new로 넣기
 void ShapeManager::insert(Shape* other)
 {
@@ -57,6 +62,14 @@ void ShapeManager::erase(int n)
 	--nShape;
 }
 
+void ShapeManager::eraseAll()
+{
+	for (int i = 0; i < nShape; ++i) {
+		delete shapes[i];
+	}
+	nShape = 0;
+}
+
 void ShapeManager::draw() const
 {
 	drawInfo(nShape, capacity);
@@ -67,4 +80,7 @@ void ShapeManager::draw() const
 		shapes[i]->draw();
 		Sleep(30);
 	}
+
+	std::cout << "\n\n";
+	drawLine();
 }

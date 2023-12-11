@@ -5,7 +5,8 @@
 
 class Rectangle : public Shape
 {
-	Point p1, p2;
+	Point* p1; 
+	Point* p2;
 
 public:
 	Rectangle();
